@@ -15,12 +15,6 @@ CharacterBuilder().set_name("Goku").set_class("warrior").build()
 
 VENTAJA: Codigo legible, flexible, y puedes crear configuraciones
 predefinidas (guerrero, mago, arquero) reutilizando el mismo builder.
-
-CONCEPTOS USADOS:
-- Composicion: El builder CONTIENE el producto (Character)
-- Agregacion: El director RECIBE el builder como parametro
-- Method chaining: Cada metodo devuelve self para encadenar
-- No usa herencia ni ABC en este ejemplo
 """
 
 
