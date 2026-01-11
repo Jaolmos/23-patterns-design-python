@@ -200,22 +200,6 @@ if __name__ == "__main__":
     
     """
     =========================================================================
-    SIN ADAPTER: El problema original
-    =========================================================================
-    Sin adapter, tendrias que hacer esto:
-    
-    mp3 = MP3Player()
-    mp3.play_mp3("file.mp3")      # Metodo diferente
-    
-    wav = WAVPlayer()
-    wav.play_wav("file.wav")      # Otro metodo diferente
-    
-    flac = FLACPlayer()
-    flac.play_flac("file.flac")   # Otro metodo diferente
-    
-    No puedes tratarlos de forma uniforme!
-    
-    =========================================================================
     VENTAJAS DEL PATRON ADAPTER
     =========================================================================
     1. INTERFAZ UNIFORME: Todos usan play(), facil de usar

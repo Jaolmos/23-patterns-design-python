@@ -115,3 +115,18 @@ if __name__ == "__main__":
     
     print("\n[PASO] Intentamos ejecutar query con db1 (ya desconectado):")
     db1.execute_query("SELECT * FROM productos")
+    
+    """
+    =========================================================================
+    VENTAJAS DEL PATRON SINGLETON
+    =========================================================================
+    1. UNA SOLA INSTANCIA: Garantiza que solo exista un objeto de la clase
+    
+    2. ACCESO GLOBAL: Cualquier parte del codigo accede a la misma instancia
+    
+    3. ESTADO COMPARTIDO: Todos los "usuarios" ven el mismo estado
+       (ej: si db1 conecta, db2 y db3 ya estan conectados)
+    
+    4. CONTROL DE RECURSOS: Evita crear multiples conexiones a BD,
+       archivos de log, configuraciones, etc.
+    """
