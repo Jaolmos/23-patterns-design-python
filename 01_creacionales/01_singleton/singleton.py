@@ -5,6 +5,16 @@ Garantiza que una clase tenga UNA SOLA instancia y proporciona
 un punto de acceso global a ella.
 
 Analogia: Como el presidente de un pais - solo puede haber uno.
+
+PROBLEMA: Crear multiples instancias de algo que deberia ser unico
+(conexiones BD, configuracion, logs) desperdicia recursos y causa
+inconsistencias.
+
+SOLUCION: Controlar la creacion para que siempre se devuelva la misma
+instancia.
+
+COMO: En Python usamos __new__ (que CREA el objeto) en lugar de __init__
+(que lo INICIALIZA). Guardamos la instancia en una variable de clase.
 """
 
 

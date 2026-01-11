@@ -7,39 +7,14 @@ decidan que clase instanciar.
 Analogia: Una pizzeria con sucursales. Cada sucursal (fabrica) sabe
 hacer su estilo de pizza, pero todas siguen el mismo proceso general.
 
---------------------------------------------------------------------------------
-PROBLEMA QUE RESUELVE
---------------------------------------------------------------------------------
+PROBLEMA: El codigo cliente usa if/elif para crear diferentes tipos
+de objetos. Cada tipo nuevo requiere modificar ese codigo.
 
-SIN Factory Method (codigo acoplado):
+SOLUCION: Delegar la creacion a subclases (fabricas). Cada fabrica
+sabe crear su tipo de producto.
 
-    def crear_documento(tipo):
-        if tipo == "pdf":
-            return PDF()
-        elif tipo == "markdown":
-            return Markdown()
-        elif tipo == "html":
-            return HTML()
-        # Cada vez que agregas un tipo, modificas esta funcion
-        # El codigo cliente conoce TODAS las clases concretas
-
-Problemas:
-- Cada nuevo tipo requiere modificar la funcion
-- El codigo cliente esta acoplado a las clases concretas
-- Dificil de extender y mantener
-
---------------------------------------------------------------------------------
-CON Factory Method (codigo desacoplado):
-
-    fabrica = PDFFactory()        # Eliges la fabrica
-    documento = fabrica.crear()   # La fabrica crea el producto
-    
-Ventajas:
-- Agregar tipos nuevos = crear nueva fabrica (sin tocar codigo existente)
-- El codigo cliente solo conoce la interfaz, no las clases concretas
-- Facil de extender
-
---------------------------------------------------------------------------------
+VENTAJA: Agregar tipos nuevos = crear nueva fabrica, sin tocar codigo
+existente. El cliente trabaja con interfaces, no clases concretas.
 """
 
 # ABC = Abstract Base Class (clase base abstracta)
