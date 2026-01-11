@@ -4,8 +4,9 @@ PATRON FACTORY METHOD
 Define una interfaz para crear objetos, pero deja que las subclases
 decidan que clase instanciar.
 
-Analogia: Una pizzeria con sucursales. Cada sucursal (fabrica) sabe
-hacer su estilo de pizza, pero todas siguen el mismo proceso general.
+Analogia: Diferentes fabricas de un mismo producto. Una fabrica hace
+sillas, otra mesas, otra armarios. Todas son fabricas de muebles, pero
+cada una esta especializada en crear una cosa concreta.
 
 PROBLEMA: El codigo cliente usa if/elif para crear diferentes tipos
 de objetos. Cada tipo nuevo requiere modificar ese codigo.
