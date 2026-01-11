@@ -168,11 +168,10 @@ if __name__ == "__main__":
     print("\n    El prototipo original no cambio:")
     orc_prototype.show_info()
     
-    # Ventajas
-    print("\n" + "=" * 60)
-    print("VENTAJAS DEL PATRON PROTOTYPE")
-    print("=" * 60)
-    print("""
+    """
+    =========================================================================
+    VENTAJAS DEL PATRON PROTOTYPE
+    =========================================================================
     1. RAPIDEZ: Clonar es mas rapido que crear desde cero
     
     2. SIMPLICIDAD: No necesitas conocer la clase concreta
@@ -181,5 +180,5 @@ if __name__ == "__main__":
     3. FLEXIBILIDAD: Puedes modificar clones sin afectar el original
     
     4. PROTOTIPOS: Guardas "plantillas" y creas variaciones
-    """)
+    """
 

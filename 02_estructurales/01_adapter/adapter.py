@@ -198,11 +198,10 @@ if __name__ == "__main__":
     for player in players:
         player.play("audio_file")  # Misma interfaz para todos
     
-    # Sin adapter (problema original)
-    print("\n" + "=" * 60)
-    print("SIN ADAPTER: El problema original")
-    print("=" * 60)
-    print("""
+    """
+    =========================================================================
+    SIN ADAPTER: El problema original
+    =========================================================================
     Sin adapter, tendrias que hacer esto:
     
     mp3 = MP3Player()
@@ -215,13 +214,10 @@ if __name__ == "__main__":
     flac.play_flac("file.flac")   # Otro metodo diferente
     
     No puedes tratarlos de forma uniforme!
-    """)
     
-    # Ventajas
-    print("=" * 60)
-    print("VENTAJAS DEL PATRON ADAPTER")
-    print("=" * 60)
-    print("""
+    =========================================================================
+    VENTAJAS DEL PATRON ADAPTER
+    =========================================================================
     1. INTERFAZ UNIFORME: Todos usan play(), facil de usar
     
     2. NO MODIFICA CODIGO ORIGINAL: MP3Player, WAVPlayer, FLACPlayer
@@ -231,5 +227,5 @@ if __name__ == "__main__":
        cerrado a modificacion (no cambias codigo existente)
     
     4. REUTILIZACION: Puedes usar codigo antiguo con APIs nuevas
-    """)
+    """
 

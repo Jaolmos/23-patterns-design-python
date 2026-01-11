@@ -177,11 +177,10 @@ if __name__ == "__main__":
     amueblar_habitacion(modern_factory, "MODERNO")
     amueblar_habitacion(classic_factory, "CLASICO")
     
-    # Demostracion de que los productos combinan
-    print("\n" + "=" * 60)
-    print("VENTAJA: Los productos siempre combinan")
-    print("=" * 60)
-    print("""
+    """
+    =========================================================================
+    VENTAJA: Los productos siempre combinan
+    =========================================================================
     Si usas ModernFactory:
         - Silla moderna + Mesa moderna = COMBINAN
     
@@ -192,13 +191,10 @@ if __name__ == "__main__":
         - Silla moderna + Mesa clasica = NO COMBINAN
     
     La fabrica garantiza la coherencia de la familia.
-    """)
     
-    # Demostracion de extensibilidad
-    print("=" * 60)
-    print("EXTENSIBILIDAD: Agregar nueva familia")
-    print("=" * 60)
-    print("""
+    =========================================================================
+    EXTENSIBILIDAD: Agregar nueva familia
+    =========================================================================
     Para agregar estilo RUSTICO:
     
     1. Crear RusticChair(Chair) y RusticTable(Table)
@@ -210,5 +206,5 @@ if __name__ == "__main__":
     1. Crear interfaz Lamp(ABC)
     2. Crear ModernLamp, ClassicLamp
     3. Agregar create_lamp() a FurnitureFactory y sus fabricas
-    """)
+    """
 

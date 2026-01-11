@@ -341,11 +341,10 @@ if __name__ == "__main__":
     control_smart_radio.toggle_power()
     control_smart_radio.open_app("Netflix")  # No soportado en Radio
     
-    # --- Resumen de ventajas ---
-    print("\n" + "=" * 60)
-    print("VENTAJAS DEL PATRON BRIDGE")
-    print("=" * 60)
-    print("""
+    """
+    =========================================================================
+    VENTAJAS DEL PATRON BRIDGE
+    =========================================================================
     1. INDEPENDENCIA: Abstraccion e implementacion evolucionan por separado
        (puedes agregar nuevos controles sin tocar dispositivos y viceversa)
     
@@ -357,9 +356,5 @@ if __name__ == "__main__":
     
     4. FLEXIBILIDAD EN TIEMPO DE EJECUCION: Puedes cambiar el dispositivo
        de un control sin recrear el control
-    """)
-    
-    print("=" * 60)
-    print("FIN DE LA DEMOSTRACION")
-    print("=" * 60)
+    """
 

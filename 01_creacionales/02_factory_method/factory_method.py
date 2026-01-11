@@ -172,15 +172,14 @@ if __name__ == "__main__":
     print("\n    Pasando HTMLFactory:")
     procesar_documento(html_factory)
     
-    # Demostracion de extensibilidad
-    print("\n" + "=" * 60)
-    print("VENTAJA: Extensibilidad")
-    print("=" * 60)
-    print("""
+    """
+    =========================================================================
+    VENTAJA: Extensibilidad
+    =========================================================================
     Para agregar un nuevo tipo (ej: XML):
     
     1. Crear clase XML(Document) con su metodo generate()
     2. Crear clase XMLFactory(DocumentFactory) con su create_document()
     3. Listo! No tocas NADA del codigo existente
-    """)
+    """
 

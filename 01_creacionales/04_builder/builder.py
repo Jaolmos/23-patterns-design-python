@@ -228,11 +228,10 @@ if __name__ == "__main__":
     
     simple.show_stats()
     
-    # Explicacion de ventajas
-    print("\n" + "=" * 60)
-    print("VENTAJAS DEL PATRON BUILDER")
-    print("=" * 60)
-    print("""
+    """
+    =========================================================================
+    VENTAJAS DEL PATRON BUILDER
+    =========================================================================
     1. LEGIBILIDAD: Cada metodo dice que hace
        .set_name("X") es mas claro que el 1er parametro
     
@@ -244,5 +243,5 @@ if __name__ == "__main__":
     
     4. INMUTABILIDAD: build() devuelve el objeto final
        El builder puede crear otro diferente despues
-    """)
+    """
 
