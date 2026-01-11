@@ -183,8 +183,8 @@ if __name__ == "__main__":
     print("\n[5] Modificando estructura:")
     print(f"    Tamaño antes: {src.get_size()} bytes")
     
-    nuevo_archivo = File("helpers.py", 500)
-    src.add(nuevo_archivo)
+    new_file = File("helpers.py", 500)
+    src.add(new_file)
     print(f"    Agregado helpers.py (500 bytes)")
     print(f"    Tamaño despues: {src.get_size()} bytes")
     

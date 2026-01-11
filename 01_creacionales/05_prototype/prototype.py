@@ -120,14 +120,14 @@ if __name__ == "__main__":
     # Clonar enemigos usando el registry
     print("\n[3] CLONANDO ENEMIGOS:")
     
-    orco1 = registry.create("orco")
-    orco2 = registry.create("orco")
+    orc1 = registry.create("orco")
+    orc2 = registry.create("orco")
     goblin1 = registry.create("goblin")
     dragon_boss = registry.create("dragon")
     
     print("\n    Enemigos clonados:")
-    orco1.show_info()
-    orco2.show_info()
+    orc1.show_info()
+    orc2.show_info()
     goblin1.show_info()
     dragon_boss.show_info()
     
@@ -135,8 +135,8 @@ if __name__ == "__main__":
     print("\n" + "=" * 60)
     print("VERIFICACION: Son objetos diferentes?")
     print("=" * 60)
-    print(f"\n    orco1 is orco2: {orco1 is orco2}")  # False
-    print(f"    orco1 is orc_prototype: {orco1 is orc_prototype}")  # False
+    print(f"\n    orc1 is orc2: {orc1 is orc2}")  # False
+    print(f"    orc1 is orc_prototype: {orc1 is orc_prototype}")  # False
     print("\n    Cada clon tiene su propio ID en memoria (son independientes)")
     
     # Demostrar deep copy (loot independiente)
@@ -144,26 +144,26 @@ if __name__ == "__main__":
     print("DEMOSTRACION: Deep Copy (loot independiente)")
     print("=" * 60)
     
-    print("\n    Modificamos el loot de orco1:")
-    orco1.loot.append("hacha")
-    print(f"    orco1.loot: {orco1.loot}")
-    print(f"    orco2.loot: {orco2.loot}")
-    print(f"    prototipo.loot: {orc_prototype.loot}")
-    print("\n    Solo orco1 cambio! (deep copy funciona)")
+    print("\n    Modificamos el loot de orc1:")
+    orc1.loot.append("hacha")
+    print(f"    orc1.loot: {orc1.loot}")
+    print(f"    orc2.loot: {orc2.loot}")
+    print(f"    prototype.loot: {orc_prototype.loot}")
+    print("\n    Solo orc1 cambio! (deep copy funciona)")
     
     # Demostrar personalizacion de clones
     print("\n" + "=" * 60)
     print("PERSONALIZACION: Modificar clones")
     print("=" * 60)
     
-    print("\n    Creamos un orco jefe (clon modificado):")
-    orco_jefe = registry.create("orco")
-    orco_jefe.name = "Orco Jefe"
-    orco_jefe.health = 200
-    orco_jefe.damage = 30
-    orco_jefe.loot.append("llave del calabozo")
+    print("\n    Creamos un orc boss (clon modificado):")
+    orc_boss = registry.create("orco")
+    orc_boss.name = "Orc Boss"
+    orc_boss.health = 200
+    orc_boss.damage = 30
+    orc_boss.loot.append("dungeon key")
     
-    orco_jefe.show_info()
+    orc_boss.show_info()
     
     print("\n    El prototipo original no cambio:")
     orc_prototype.show_info()

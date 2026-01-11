@@ -157,17 +157,17 @@ if __name__ == "__main__":
     
     # Amueblar con estilo moderno
     print("\n[2] Amueblando habitacion MODERNA:")
-    silla_moderna = modern_factory.create_chair()
-    mesa_moderna = modern_factory.create_table()
-    print(f"    Silla: {silla_moderna.sit_on()}")
-    print(f"    Mesa:  {mesa_moderna.place_on()}")
+    modern_chair = modern_factory.create_chair()
+    modern_table = modern_factory.create_table()
+    print(f"    Silla: {modern_chair.sit_on()}")
+    print(f"    Mesa:  {modern_table.place_on()}")
     
     # Amueblar con estilo clasico
     print("\n[3] Amueblando habitacion CLASICA:")
-    silla_clasica = classic_factory.create_chair()
-    mesa_clasica = classic_factory.create_table()
-    print(f"    Silla: {silla_clasica.sit_on()}")
-    print(f"    Mesa:  {mesa_clasica.place_on()}")
+    classic_chair = classic_factory.create_chair()
+    classic_table = classic_factory.create_table()
+    print(f"    Silla: {classic_chair.sit_on()}")
+    print(f"    Mesa:  {classic_table.place_on()}")
     
     """
     =========================================================================
