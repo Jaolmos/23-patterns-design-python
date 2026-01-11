@@ -1,6 +1,10 @@
 """
 PATRON BRIDGE - Dispositivos y Controles Remotos
 
+Analogia: Un control remoto y un televisor. El control (abstraccion) y el
+TV (implementacion) son cosas separadas. Puedes cambiar de TV sin cambiar
+el control, o comprar un control universal sin cambiar el TV.
+
 PROBLEMA: Tienes abstracciones (controles) e implementaciones (dispositivos)
 que crecen de forma independiente. Sin Bridge, necesitarias una clase por
 cada combinacion: ControlBasicoTV, ControlBasicoRadio, ControlAvanzadoTV...
