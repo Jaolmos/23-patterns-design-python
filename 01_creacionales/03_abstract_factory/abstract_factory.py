@@ -179,32 +179,14 @@ if __name__ == "__main__":
     
     """
     =========================================================================
-    VENTAJA: Los productos siempre combinan
+    VENTAJAS DEL PATRON ABSTRACT FACTORY
     =========================================================================
-    Si usas ModernFactory:
-        - Silla moderna + Mesa moderna = COMBINAN
+    1. COHERENCIA: Los productos de una familia siempre combinan entre si
     
-    Si usas ClassicFactory:
-        - Silla clasica + Mesa clasica = COMBINAN
+    2. AISLAMIENTO: El cliente no conoce las clases concretas, solo la fabrica
     
-    NUNCA tendras:
-        - Silla moderna + Mesa clasica = NO COMBINAN
+    3. INTERCAMBIABLE: Cambiar de familia es cambiar una sola linea (la fabrica)
     
-    La fabrica garantiza la coherencia de la familia.
-    
-    =========================================================================
-    EXTENSIBILIDAD: Agregar nueva familia
-    =========================================================================
-    Para agregar estilo RUSTICO:
-    
-    1. Crear RusticChair(Chair) y RusticTable(Table)
-    2. Crear RusticFactory(FurnitureFactory)
-    3. Listo! No tocas NADA del codigo existente
-    
-    Para agregar nuevo producto (ej: Lamp):
-    
-    1. Crear interfaz Lamp(ABC)
-    2. Crear ModernLamp, ClassicLamp
-    3. Agregar create_lamp() a FurnitureFactory y sus fabricas
+    4. PRINCIPIO ABIERTO/CERRADO: Agregar familias sin modificar codigo existente
     """
 
