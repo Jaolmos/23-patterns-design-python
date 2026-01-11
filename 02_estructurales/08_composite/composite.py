@@ -172,19 +172,12 @@ if __name__ == "__main__":
     print(f"    proyecto.get_size()  = {proyecto.get_size()} bytes (todo el proyecto)")
     
     # --- La magia del Composite ---
-    print("\n[4] La magia: tratar todo igual")
-    
-    def mostrar_info(item: FileSystemItem):
-        """
-        Esta funcion NO sabe si recibe un File o un Folder.
-        Solo sabe que tiene get_size() y show().
-        """
-        print(f"    '{item.name}' ocupa {item.get_size()} bytes")
+    print("\n[4] La magia: tratar todo igual (misma interfaz)")
     
     # Funciona igual con archivos y carpetas
-    mostrar_info(readme)      # Un archivo
-    mostrar_info(tests)       # Una carpeta
-    mostrar_info(proyecto)    # Carpeta raiz
+    print(f"    readme (archivo):   {readme.get_size()} bytes")
+    print(f"    tests (carpeta):    {tests.get_size()} bytes")
+    print(f"    proyecto (raiz):    {proyecto.get_size()} bytes")
     
     # --- Modificar estructura ---
     print("\n[5] Modificando estructura:")

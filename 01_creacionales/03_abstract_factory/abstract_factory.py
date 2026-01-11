@@ -148,23 +148,6 @@ if __name__ == "__main__":
     print("DEMOSTRACION DEL PATRON ABSTRACT FACTORY")
     print("=" * 60)
     
-    # Funcion cliente que usa la fabrica sin saber el estilo concreto
-    def amueblar_habitacion(factory: FurnitureFactory, nombre_estilo: str):
-        """
-        Esta funcion NO sabe si recibe ModernFactory o ClassicFactory.
-        Solo sabe que recibe 'alguna fabrica de muebles'.
-        Todos los muebles creados combinaran porque vienen de la misma fabrica.
-        """
-        print(f"\n[AMUEBLANDO] Habitacion estilo {nombre_estilo}:")
-        
-        # Crear los muebles usando la fabrica
-        silla = factory.create_chair()
-        mesa = factory.create_table()
-        
-        # Usar los muebles
-        print(f"    Silla: {silla.sit_on()}")
-        print(f"    Mesa:  {mesa.place_on()}")
-    
     # Crear las fabricas
     print("\n[1] Creando las fabricas:")
     modern_factory = ModernFactory()
@@ -172,10 +155,19 @@ if __name__ == "__main__":
     print("    - ModernFactory creada")
     print("    - ClassicFactory creada")
     
-    # Amueblar habitaciones con diferentes estilos
-    print("\n[2] Amueblando habitaciones:")
-    amueblar_habitacion(modern_factory, "MODERNO")
-    amueblar_habitacion(classic_factory, "CLASICO")
+    # Amueblar con estilo moderno
+    print("\n[2] Amueblando habitacion MODERNA:")
+    silla_moderna = modern_factory.create_chair()
+    mesa_moderna = modern_factory.create_table()
+    print(f"    Silla: {silla_moderna.sit_on()}")
+    print(f"    Mesa:  {mesa_moderna.place_on()}")
+    
+    # Amueblar con estilo clasico
+    print("\n[3] Amueblando habitacion CLASICA:")
+    silla_clasica = classic_factory.create_chair()
+    mesa_clasica = classic_factory.create_table()
+    print(f"    Silla: {silla_clasica.sit_on()}")
+    print(f"    Mesa:  {mesa_clasica.place_on()}")
     
     """
     =========================================================================

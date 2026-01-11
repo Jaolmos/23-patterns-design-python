@@ -170,22 +170,15 @@ if __name__ == "__main__":
     
     # --- La magia: el cliente no sabe cuantos decoradores hay ---
     print("\n" + "=" * 60)
-    print("DEMOSTRACION: Polimorfismo")
+    print("DEMOSTRACION: Misma interfaz, diferentes configuraciones")
     print("=" * 60)
     
-    def enviar_alerta(notifier: Notifier, mensaje: str):
-        """
-        Esta funcion no sabe si recibe un BasicNotifier o uno
-        con 10 decoradores apilados. Solo llama a send().
-        """
-        print(f"\n    Enviando: '{mensaje}'")
-        notifier.send(mensaje)
-    
-    print("\n[5] Misma funcion, diferentes configuraciones:")
+    print("\n[5] Notificador simple vs completo:")
     
     # Configuracion simple
     simple = BasicNotifier()
-    enviar_alerta(simple, "Test simple")
+    print("\n  Simple:")
+    simple.send("Test simple")
     
     # Configuracion completa
     completo = SlackDecorator(
@@ -198,7 +191,8 @@ if __name__ == "__main__":
         ),
         channel="#emergencias"
     )
-    enviar_alerta(completo, "Test completo")
+    print("\n  Completo:")
+    completo.send("Test completo")
     
     # --- Orden de los decoradores importa ---
     print("\n" + "=" * 60)

@@ -150,27 +150,13 @@ if __name__ == "__main__":
     
     # Demostracion de polimorfismo: el codigo cliente no conoce el tipo concreto
     print("\n" + "=" * 60)
-    print("DEMOSTRACION: Polimorfismo")
+    print("DEMOSTRACION: Polimorfismo (misma interfaz)")
     print("=" * 60)
     
-    print("\n[3] Usando una funcion que acepta CUALQUIER fabrica:")
-    
-    def procesar_documento(factory: DocumentFactory):
-        """
-        Esta funcion no sabe que tipo de documento se creara.
-        Solo sabe que recibe 'alguna fabrica' y llama a operation().
-        """
-        print(f"    Resultado: {factory.operation()}")
-    
-    # La misma funcion funciona con cualquier fabrica
-    print("\n    Pasando PDFFactory:")
-    procesar_documento(pdf_factory)
-    
-    print("\n    Pasando MarkdownFactory:")
-    procesar_documento(markdown_factory)
-    
-    print("\n    Pasando HTMLFactory:")
-    procesar_documento(html_factory)
+    print("\n[3] Todas las fabricas usan operation():")
+    factories = [pdf_factory, markdown_factory, html_factory]
+    for factory in factories:
+        print(f"    {factory.operation()}")
     
     """
     =========================================================================
