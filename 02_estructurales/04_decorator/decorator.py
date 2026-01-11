@@ -16,7 +16,7 @@ VENTAJA: Combinas funcionalidades en tiempo de ejecucion. Puedes apilar
 decoradores como quieras sin crear nuevas clases para cada combinacion.
 
 Conceptos OOP usados:
-- Composicion: El decorador CONTIENE una referencia al componente
+- Agregacion: El decorador RECIBE el componente (no lo crea)
 - Herencia: Los decoradores heredan de la misma interfaz que decoran
 - Polimorfismo: El cliente no distingue entre componente y decorador
 """
@@ -66,7 +66,7 @@ class NotifierDecorator(Notifier):
     """
     
     def __init__(self, notifier: Notifier):
-        # Composicion: el decorador CONTIENE el notificador que envuelve
+        # Agregacion: el decorador RECIBE el notificador que envuelve
         self._wrapped = notifier
     
     def send(self, message: str):
