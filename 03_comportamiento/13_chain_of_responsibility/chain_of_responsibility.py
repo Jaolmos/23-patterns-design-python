@@ -262,27 +262,13 @@ if __name__ == "__main__":
     VENTAJAS DEL PATRON CHAIN OF RESPONSIBILITY
     =========================================================================
     1. DESACOPLAMIENTO: El emisor no necesita conocer quien procesa
-    
+
     2. FLEXIBILIDAD: Puedes añadir/quitar/reordenar handlers facilmente
-    
+
     3. RESPONSABILIDAD UNICA: Cada handler se enfoca en su criterio
-    
+
     4. OPEN/CLOSED: Añades nuevos handlers sin modificar los existentes
-    
+
     5. CONTROL DE FLUJO: El cliente solo interactua con el primer handler
-    
-    CUANDO USARLO:
-    - Multiples objetos pueden manejar una solicitud
-    - El handler no se conoce de antemano
-    - Quieres enviar solicitud a uno de varios objetos sin especificar cual
-    - El conjunto de handlers debe asignarse dinamicamente
-    
-    EJEMPLOS REALES:
-    - Sistemas de soporte (como este)
-    - Middleware en frameworks web (Express, Django)
-    - Event bubbling en interfaces graficas
-    - Filtros de peticiones HTTP
-    - Validadores de formularios
-    - Procesamiento de logs por niveles
     """
 
