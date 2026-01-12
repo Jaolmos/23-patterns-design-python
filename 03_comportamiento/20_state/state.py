@@ -141,6 +141,7 @@ class MusicPlayer:
 
     def __init__(self, song: str):
         self._song = song
+        # Composicion: el context contiene referencia al estado actual
         self._state: PlayerState = StoppedState()  # Estado inicial
         print(f"[Reproductor] Cancion cargada: '{self._song}'")
 
@@ -151,6 +152,7 @@ class MusicPlayer:
     def play(self) -> None:
         """Delega la accion al estado actual."""
         print(f"\n[Reproductor] Presionando PLAY...")
+        # Delegacion: el context delega al estado actual (polimorfismo)
         self._state.play(self)
 
     def pause(self) -> None:

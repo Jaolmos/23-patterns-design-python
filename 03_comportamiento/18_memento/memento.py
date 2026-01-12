@@ -38,7 +38,8 @@ class ConfigurationMemento:
     """
 
     def __init__(self, theme: str, language: str, notifications: bool, volume: int, timestamp: str):
-        # Estado guardado (privado, no debe modificarse)
+        # Encapsulacion: el memento guarda el estado internamente
+        # Estado guardado (privado, no debe modificarse - inmutable)
         self._theme = theme
         self._language = language
         self._notifications = notifications
@@ -145,6 +146,7 @@ class ConfigurationHistory:
     """
 
     def __init__(self):
+        # Composicion: el caretaker contiene lista de mementos
         self._history: List[ConfigurationMemento] = []
 
     def save(self, memento: ConfigurationMemento) -> None:

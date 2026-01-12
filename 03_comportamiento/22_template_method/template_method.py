@@ -47,19 +47,20 @@ class DocumentExporter(ABC):
         print(f"\n[{self.__class__.__name__}] Iniciando exportacion...")
         print("-" * 60)
 
-        # Paso 1: Preparar documento (comun)
+        # Template Method: define el esqueleto del algoritmo
+        # Paso 1: Preparar documento (metodo concreto, puede sobreescribirse)
         self._prepare_document()
 
-        # Paso 2: Agregar encabezado (especifico)
+        # Paso 2: Agregar encabezado (metodo abstracto, cada subclase lo implementa)
         result = self._add_header(title)
 
-        # Paso 3: Agregar contenido (especifico)
+        # Paso 3: Agregar contenido (metodo abstracto)
         result += self._add_content(content)
 
-        # Paso 4: Agregar pie de pagina (especifico)
+        # Paso 4: Agregar pie de pagina (metodo abstracto)
         result += self._add_footer()
 
-        # Paso 5: Finalizar documento (comun)
+        # Paso 5: Finalizar documento (metodo concreto)
         self._finalize_document()
 
         return result

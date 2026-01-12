@@ -81,6 +81,7 @@ class EventNotifier(Subject):
 
     def __init__(self, name: str):
         self._name = name
+        # Composicion: el subject contiene lista de observers
         self._observers: List[Observer] = []
 
     def attach(self, observer: Observer) -> None:
@@ -104,6 +105,7 @@ class EventNotifier(Subject):
         print(f"\n[{self._name}] Evento: {event_type}")
         print(f"  Notificando a {len(self._observers)} observers...")
 
+        # Polimorfismo: itera sobre observers sin saber su tipo concreto
         for observer in self._observers:
             observer.update(event_type, message, timestamp)
 

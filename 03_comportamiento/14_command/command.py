@@ -93,6 +93,7 @@ class InsertTextCommand(Command):
     """
 
     def __init__(self, document: TextDocument, text: str, position: int):
+        # Encapsulacion: el comando guarda el receiver y los parametros
         self._document = document
         self._text = text
         self._position = position
@@ -100,6 +101,7 @@ class InsertTextCommand(Command):
     def execute(self) -> None:
         """Ejecuta: inserta el texto."""
         print(f"[InsertTextCommand] Ejecutando...")
+        # Delegacion: el comando delega el trabajo real al receiver
         self._document.insert_text(self._text, self._position)
 
     def undo(self) -> None:
@@ -115,6 +117,7 @@ class DeleteTextCommand(Command):
     """
 
     def __init__(self, document: TextDocument, position: int, length: int):
+        # Encapsulacion: guarda receiver y parametros para ejecutar y deshacer
         self._document = document
         self._position = position
         self._length = length
@@ -143,6 +146,7 @@ class TextEditor:
 
     def __init__(self, document: TextDocument):
         self._document = document
+        # Composicion: el editor contiene listas de comandos
         self._history: List[Command] = []  # Historial de comandos ejecutados
         self._redo_stack: List[Command] = []  # Pila para rehacer
 
@@ -151,8 +155,11 @@ class TextEditor:
         Ejecuta un comando y lo guarda en el historial.
         Limpia la pila de rehacer porque la historia cambio.
         """
+        # 1. Ejecutar el comando (polimorfismo: no sabe que comando es)
         command.execute()
+        # 2. Guardar en historial para poder deshacer
         self._history.append(command)
+        # 3. Limpiar redo porque la historia cambio
         self._redo_stack.clear()  # Al hacer nueva accion, se pierde el redo
 
     def undo(self) -> None:

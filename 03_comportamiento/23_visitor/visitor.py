@@ -99,6 +99,7 @@ class TextFile(File):
 
     def accept(self, visitor: FileVisitor) -> None:
         """Acepta visitor y le dice que visite un TextFile."""
+        # Double dispatch: el elemento llama al metodo especifico del visitor
         visitor.visit_text_file(self)
 
 
@@ -154,6 +155,7 @@ class SizeAnalyzerVisitor(FileVisitor):
     """
 
     def __init__(self):
+        # El visitor mantiene estado durante la visita
         self._total_size = 0
 
     def visit_text_file(self, file: TextFile) -> None:

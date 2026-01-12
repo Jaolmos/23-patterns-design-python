@@ -91,6 +91,7 @@ class MenuIterator(Iterator):
     """
 
     def __init__(self, items: List[MenuItem]):
+        # Encapsulacion: el iterator guarda la coleccion y la posicion actual
         self._items = items
         self._position = 0
 
@@ -199,6 +200,7 @@ class Waiter:
     """
 
     def __init__(self, breakfast_menu: Menu, lunch_menu: Menu, dinner_menu: Menu):
+        # Composicion: el mesero contiene referencias a los menus
         self._breakfast_menu = breakfast_menu
         self._lunch_menu = lunch_menu
         self._dinner_menu = dinner_menu
@@ -220,6 +222,7 @@ class Waiter:
 
     def _print_menu_items(self, iterator: Iterator) -> None:
         """Imprime items usando el iterator."""
+        # Polimorfismo: no sabe que tipo de iterator es, solo usa la interfaz
         while iterator.has_next():
             item = iterator.next()
             print(f"\n{item}")

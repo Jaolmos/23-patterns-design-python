@@ -60,6 +60,7 @@ class ChatRoom(ChatMediator):
 
     def __init__(self, name: str):
         self._name = name
+        # Composicion: el mediador contiene la lista de usuarios (colegas)
         self._users: List['User'] = []
 
     def add_user(self, user: 'User') -> None:
@@ -75,6 +76,7 @@ class ChatRoom(ChatMediator):
         """
         timestamp = datetime.now().strftime("%H:%M:%S")
 
+        # Delegacion: el mediador distribuye el mensaje a todos los usuarios
         # Enviar a todos excepto al emisor
         for user in self._users:
             if user != sender:

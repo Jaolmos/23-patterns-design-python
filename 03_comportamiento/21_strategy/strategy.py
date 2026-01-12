@@ -138,6 +138,7 @@ class ShoppingCart:
 
     def __init__(self):
         self._items = []
+        # Composicion: el context contiene referencia a la estrategia
         self._payment_strategy: PaymentStrategy = None
 
     def add_item(self, name: str, price: float) -> None:
@@ -163,6 +164,7 @@ class ShoppingCart:
         total = self.get_total()
         print(f"\n[Checkout] Total a pagar: ${total:.2f}")
         print("-" * 50)
+        # Delegacion: el context delega a la estrategia (polimorfismo)
         self._payment_strategy.pay(total)
 
 

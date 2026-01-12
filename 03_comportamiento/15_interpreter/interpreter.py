@@ -38,6 +38,7 @@ class ConversionContext:
     """
 
     def __init__(self):
+        # Encapsulacion: el contexto guarda las tasas de conversion
         # Tasas de conversion a la unidad base (metros para distancia, dolares para moneda)
         self._distance_rates = {
             "m": 1.0,
@@ -121,14 +122,16 @@ class DistanceConversionExpression(Expression):
         1. Convierte el valor a la unidad base (metros)
         2. Convierte de la unidad base a la unidad destino
         """
+        # 1. Obtener tasas del contexto
         from_rate = context.get_distance_rate(self._from_unit)
         to_rate = context.get_distance_rate(self._to_unit)
 
         if from_rate is None or to_rate is None:
             return f"[ERROR] Unidad de distancia no reconocida"
 
-        # Convertir a unidad base y luego a unidad destino
+        # 2. Convertir a unidad base (metros)
         base_value = self._value * from_rate
+        # 3. Convertir de unidad base a unidad destino
         result = base_value / to_rate
 
         return f"{self._value} {self._from_unit} = {result:.2f} {self._to_unit}"
