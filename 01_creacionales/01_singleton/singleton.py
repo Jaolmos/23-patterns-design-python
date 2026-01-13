@@ -23,12 +23,12 @@ class DatabaseConnection:
     Clase que simula una conexion a base de datos.
     Implementa el patron Singleton para garantizar una unica instancia.
     """
-    
+
     # Variable de clase que guarda la unica instancia
     # Al principio no existe ninguna instancia
-    _instance = None
-    
-    def __new__(cls):
+    _instance: "DatabaseConnection | None" = None
+
+    def __new__(cls) -> "DatabaseConnection":
         """
         __new__ es el metodo que CREA el objeto (antes de __init__).
         Aqui controlamos si ya existe una instancia o no.
@@ -46,7 +46,7 @@ class DatabaseConnection:
         # Siempre devolvemos la MISMA instancia
         return cls._instance
     
-    def connect(self):
+    def connect(self) -> None:
         """Simula conectar a la base de datos."""
         if not self.connected:
             self.connected = True
@@ -54,7 +54,7 @@ class DatabaseConnection:
         else:
             print("[INFO] Ya estabas conectado")
     
-    def disconnect(self):
+    def disconnect(self) -> None:
         """Simula desconectar de la base de datos."""
         if self.connected:
             self.connected = False
@@ -62,7 +62,7 @@ class DatabaseConnection:
         else:
             print("[INFO] Ya estabas desconectado")
     
-    def execute_query(self, query):
+    def execute_query(self, query: str) -> None:
         """Simula ejecutar una consulta."""
         if self.connected:
             print(f"[QUERY] Ejecutando: {query}")

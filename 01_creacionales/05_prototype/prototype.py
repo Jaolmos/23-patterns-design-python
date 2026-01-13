@@ -25,22 +25,22 @@ class Enemy:
     Clase que representa un enemigo en un videojuego.
     Puede clonarse para crear copias rapidamente.
     """
-    
-    def __init__(self, name, health, damage, speed, loot):
+
+    def __init__(self, name: str, health: int, damage: int, speed: int, loot: list[str]) -> None:
         self.name = name
         self.health = health
         self.damage = damage
         self.speed = speed
         self.loot = loot  # Lista de objetos que suelta al morir
-    
-    def clone(self):
+
+    def clone(self) -> "Enemy":
         """
         Crea y devuelve una copia profunda de este enemigo.
         Usamos deepcopy para que la lista 'loot' tambien se copie.
         """
         return copy.deepcopy(self)
-    
-    def show_info(self):
+
+    def show_info(self) -> None:
         """Muestra la informacion del enemigo."""
         print(f"\n  [{self.name}]")
         print(f"  Salud: {self.health} | Dano: {self.damage} | Velocidad: {self.speed}")
@@ -53,15 +53,15 @@ class EnemyRegistry:
     Registro de prototipos de enemigos.
     Guarda enemigos base que pueden clonarse cuando se necesiten.
     """
-    
-    def __init__(self):
-        self._prototypes = {}
-    
-    def register(self, name, prototype):
+
+    def __init__(self) -> None:
+        self._prototypes: dict[str, Enemy] = {}
+
+    def register(self, name: str, prototype: Enemy) -> None:
         """Registra un prototipo con un nombre."""
         self._prototypes[name] = prototype
-    
-    def create(self, name):
+
+    def create(self, name: str) -> Enemy | None:
         """Crea un nuevo enemigo clonando el prototipo registrado."""
         if name not in self._prototypes:
             print(f"[ERROR] Prototipo '{name}' no encontrado")

@@ -29,9 +29,9 @@ class Chair(ABC):
     Interfaz para todas las sillas.
     Todas las sillas deben poder 'sentarse' en ellas.
     """
-    
+
     @abstractmethod
-    def sit_on(self):
+    def sit_on(self) -> str:
         """Metodo que deben implementar todas las sillas."""
         pass
 
@@ -41,9 +41,9 @@ class Table(ABC):
     Interfaz para todas las mesas.
     Todas las mesas deben poder 'colocar cosas' encima.
     """
-    
+
     @abstractmethod
-    def place_on(self):
+    def place_on(self) -> str:
         """Metodo que deben implementar todas las mesas."""
         pass
 
@@ -54,15 +54,15 @@ class Table(ABC):
 
 class ModernChair(Chair):
     """Silla de estilo moderno."""
-    
-    def sit_on(self):
+
+    def sit_on(self) -> str:
         return "Sentado en una silla MODERNA (minimalista, metal y vidrio)"
 
 
 class ModernTable(Table):
     """Mesa de estilo moderno."""
-    
-    def place_on(self):
+
+    def place_on(self) -> str:
         return "Colocando objetos en una mesa MODERNA (lineas rectas, cristal)"
 
 
@@ -72,15 +72,15 @@ class ModernTable(Table):
 
 class ClassicChair(Chair):
     """Silla de estilo clasico."""
-    
-    def sit_on(self):
+
+    def sit_on(self) -> str:
         return "Sentado en una silla CLASICA (madera tallada, terciopelo)"
 
 
 class ClassicTable(Table):
     """Mesa de estilo clasico."""
-    
-    def place_on(self):
+
+    def place_on(self) -> str:
         return "Colocando objetos en una mesa CLASICA (madera maciza, ornamentos)"
 
 
@@ -93,14 +93,14 @@ class FurnitureFactory(ABC):
     Interfaz de la fabrica abstracta.
     Define metodos para crear CADA tipo de producto de la familia.
     """
-    
+
     @abstractmethod
-    def create_chair(self):
+    def create_chair(self) -> Chair:
         """Crea una silla del estilo de esta fabrica."""
         pass
-    
+
     @abstractmethod
-    def create_table(self):
+    def create_table(self) -> Table:
         """Crea una mesa del estilo de esta fabrica."""
         pass
 
@@ -114,12 +114,12 @@ class ModernFactory(FurnitureFactory):
     Fabrica que crea muebles de estilo MODERNO.
     Todos los productos creados combinan entre si.
     """
-    
-    def create_chair(self):
+
+    def create_chair(self) -> ModernChair:
         # Esta fabrica SIEMPRE crea sillas modernas
         return ModernChair()
-    
-    def create_table(self):
+
+    def create_table(self) -> ModernTable:
         # Esta fabrica SIEMPRE crea mesas modernas
         return ModernTable()
 
@@ -129,12 +129,12 @@ class ClassicFactory(FurnitureFactory):
     Fabrica que crea muebles de estilo CLASICO.
     Todos los productos creados combinan entre si.
     """
-    
-    def create_chair(self):
+
+    def create_chair(self) -> ClassicChair:
         # Esta fabrica SIEMPRE crea sillas clasicas
         return ClassicChair()
-    
-    def create_table(self):
+
+    def create_table(self) -> ClassicTable:
         # Esta fabrica SIEMPRE crea mesas clasicas
         return ClassicTable()
 

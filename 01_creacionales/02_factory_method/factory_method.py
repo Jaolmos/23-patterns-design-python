@@ -34,7 +34,7 @@ class Document(ABC):
     """
     
     @abstractmethod
-    def generate(self):
+    def generate(self) -> str:
         """
         Metodo abstracto: las subclases DEBEN implementarlo.
         Si no lo implementan, Python lanza error.
@@ -48,22 +48,22 @@ class Document(ABC):
 
 class PDF(Document):
     """Documento PDF concreto."""
-    
-    def generate(self):
+
+    def generate(self) -> str:
         return "Generando documento en formato PDF"
 
 
 class Markdown(Document):
     """Documento Markdown concreto."""
-    
-    def generate(self):
+
+    def generate(self) -> str:
         return "Generando documento en formato Markdown"
 
 
 class HTML(Document):
     """Documento HTML concreto."""
-    
-    def generate(self):
+
+    def generate(self) -> str:
         return "Generando documento en formato HTML"
 
 
@@ -78,14 +78,14 @@ class DocumentFactory(ABC):
     """
     
     @abstractmethod
-    def create_document(self):
+    def create_document(self) -> Document:
         """
         Metodo factory: las subclases deciden QUE documento crear.
         Este es el corazon del patron.
         """
         pass
-    
-    def operation(self):
+
+    def operation(self) -> str:
         """
         Metodo que USA el factory method.
         No sabe que tipo de documento se creara, solo que sera un Document.
@@ -102,24 +102,24 @@ class DocumentFactory(ABC):
 
 class PDFFactory(DocumentFactory):
     """Fabrica que crea documentos PDF."""
-    
-    def create_document(self):
+
+    def create_document(self) -> PDF:
         # Esta fabrica SIEMPRE crea PDFs
         return PDF()
 
 
 class MarkdownFactory(DocumentFactory):
     """Fabrica que crea documentos Markdown."""
-    
-    def create_document(self):
+
+    def create_document(self) -> Markdown:
         # Esta fabrica SIEMPRE crea Markdowns
         return Markdown()
 
 
 class HTMLFactory(DocumentFactory):
     """Fabrica que crea documentos HTML."""
-    
-    def create_document(self):
+
+    def create_document(self) -> HTML:
         # Esta fabrica SIEMPRE crea HTMLs
         return HTML()
 
