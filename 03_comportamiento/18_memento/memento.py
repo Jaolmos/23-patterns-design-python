@@ -46,7 +46,7 @@ class ConfigurationMemento:
         self._volume = volume
         self._timestamp = timestamp
 
-    def get_state(self) -> dict:
+    def get_state(self) -> dict[str, str | bool | int]:
         """Retorna el estado guardado. Solo el Originator deberia usarlo."""
         return {
             "theme": self._theme,
@@ -70,7 +70,7 @@ class ApplicationConfig:
     Puede crear mementos de su estado y restaurarse desde un memento.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         # Estado actual de la configuracion
         self._theme = "light"
         self._language = "es"
@@ -145,22 +145,22 @@ class ConfigurationHistory:
     No conoce ni modifica el contenido de los mementos.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         # Composicion: el caretaker contiene lista de mementos
-        self._history: List[ConfigurationMemento] = []
+        self._history: list[ConfigurationMemento] = []
 
     def save(self, memento: ConfigurationMemento) -> None:
         """Guarda un memento en el historial."""
         self._history.append(memento)
         print(f"  [History] Configuracion guardada en historial (total: {len(self._history)})")
 
-    def get(self, index: int) -> ConfigurationMemento:
+    def get(self, index: int) -> ConfigurationMemento | None:
         """Obtiene un memento especifico del historial."""
         if 0 <= index < len(self._history):
             return self._history[index]
         return None
 
-    def get_latest(self) -> ConfigurationMemento:
+    def get_latest(self) -> ConfigurationMemento | None:
         """Obtiene el memento mas reciente."""
         if self._history:
             return self._history[-1]

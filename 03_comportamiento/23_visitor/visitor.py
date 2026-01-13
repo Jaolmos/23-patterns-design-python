@@ -154,7 +154,7 @@ class SizeAnalyzerVisitor(FileVisitor):
     Visitor concreto: Analiza el tamaño de los archivos.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         # El visitor mantiene estado durante la visita
         self._total_size = 0
 

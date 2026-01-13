@@ -136,10 +136,10 @@ class ShoppingCart:
     Puede cambiar la estrategia dinamicamente.
     """
 
-    def __init__(self):
-        self._items = []
+    def __init__(self) -> None:
+        self._items: list[dict[str, str | float]] = []
         # Composicion: el context contiene referencia a la estrategia
-        self._payment_strategy: PaymentStrategy = None
+        self._payment_strategy: PaymentStrategy | None = None
 
     def add_item(self, name: str, price: float) -> None:
         """Agrega un item al carrito."""
