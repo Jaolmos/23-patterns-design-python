@@ -30,14 +30,14 @@ class BIOS:
     Subsistema: BIOS (Basic Input/Output System).
     Se encarga de inicializar y verificar el hardware.
     """
-    
-    def initialize(self):
+
+    def initialize(self) -> None:
         print("[BIOS] Inicializando BIOS...")
-    
-    def check_hardware(self):
+
+    def check_hardware(self) -> None:
         print("[BIOS] Verificando hardware... OK")
-    
-    def load_boot_sector(self):
+
+    def load_boot_sector(self) -> None:
         print("[BIOS] Cargando sector de arranque...")
 
 
@@ -46,17 +46,17 @@ class CPU:
     Subsistema: Procesador.
     Se encarga de ejecutar instrucciones.
     """
-    
-    def freeze(self):
+
+    def freeze(self) -> None:
         print("[CPU] Congelando procesador...")
-    
-    def jump(self, address):
+
+    def jump(self, address: int) -> None:
         print(f"[CPU] Saltando a direccion {address}")
-    
-    def execute(self):
+
+    def execute(self) -> None:
         print("[CPU] Ejecutando instrucciones...")
-    
-    def stop(self):
+
+    def stop(self) -> None:
         print("[CPU] Deteniendo procesador...")
 
 
@@ -65,11 +65,11 @@ class Memory:
     Subsistema: Memoria RAM.
     Se encarga de cargar datos para acceso rapido.
     """
-    
-    def load(self, address, data):
+
+    def load(self, address: int, data: str) -> None:
         print(f"[Memory] Cargando '{data}' en direccion {address}")
-    
-    def free(self):
+
+    def free(self) -> None:
         print("[Memory] Liberando memoria...")
 
 
@@ -78,15 +78,15 @@ class HardDrive:
     Subsistema: Disco duro.
     Se encarga de leer y escribir datos persistentes.
     """
-    
-    def read(self, sector, size):
+
+    def read(self, sector: int, size: int) -> str:
         print(f"[HardDrive] Leyendo {size} bytes del sector {sector}")
         return f"datos_del_sector_{sector}"
-    
-    def spin_up(self):
+
+    def spin_up(self) -> None:
         print("[HardDrive] Iniciando disco duro...")
-    
-    def spin_down(self):
+
+    def spin_down(self) -> None:
         print("[HardDrive] Deteniendo disco duro...")
 
 
@@ -95,11 +95,11 @@ class CoolingSystem:
     Subsistema: Sistema de refrigeracion.
     Se encarga de mantener la temperatura adecuada.
     """
-    
-    def start_fans(self):
+
+    def start_fans(self) -> None:
         print("[Cooling] Iniciando ventiladores...")
-    
-    def stop_fans(self):
+
+    def stop_fans(self) -> None:
         print("[Cooling] Deteniendo ventiladores...")
 
 
@@ -112,16 +112,16 @@ class Computer:
     Fachada: Proporciona una interfaz simple para el sistema complejo.
     El cliente solo necesita llamar a start() y shutdown().
     """
-    
-    def __init__(self):
+
+    def __init__(self) -> None:
         # Composicion: la fachada CREA todos los subsistemas
         self._bios = BIOS()
         self._cpu = CPU()
         self._memory = Memory()
         self._hard_drive = HardDrive()
         self._cooling = CoolingSystem()
-    
-    def start(self):
+
+    def start(self) -> None:
         """
         Enciende el ordenador.
         Coordina todos los subsistemas en el orden correcto.
@@ -157,8 +157,8 @@ class Computer:
         print("=" * 50)
         print("ORDENADOR LISTO!")
         print("=" * 50 + "\n")
-    
-    def shutdown(self):
+
+    def shutdown(self) -> None:
         """
         Apaga el ordenador.
         Coordina el apagado en orden inverso.
