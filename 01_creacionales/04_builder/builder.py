@@ -23,24 +23,24 @@ class Character:
     PRODUCTO: El objeto complejo que queremos construir.
     Tiene muchos atributos que seria confuso pasar todos al constructor.
     """
-    
-    def __init__(self):
+
+    def __init__(self) -> None:
         # Atributos basicos
-        self.name = None
-        self.character_class = None
-        
+        self.name: str | None = None
+        self.character_class: str | None = None
+
         # Atributos de combate (0-100)
-        self.strength = 0
-        self.agility = 0
-        self.intelligence = 0
-        self.health = 100
-        
+        self.strength: int = 0
+        self.agility: int = 0
+        self.intelligence: int = 0
+        self.health: int = 100
+
         # Equipamiento
-        self.weapon = None
-        self.armor = None
-        self.accessory = None
-    
-    def show_stats(self):
+        self.weapon: str | None = None
+        self.armor: str | None = None
+        self.accessory: str | None = None
+
+    def show_stats(self) -> None:
         """Muestra las estadisticas del personaje."""
         print(f"\n{'='*40}")
         print(f"  PERSONAJE: {self.name}")
@@ -63,57 +63,57 @@ class CharacterBuilder:
     BUILDER: Clase que construye el personaje paso a paso.
     Cada metodo configura una parte y devuelve 'self' para encadenar.
     """
-    
-    def __init__(self):
+
+    def __init__(self) -> None:
         # Crear un personaje vacio para ir construyendo
         self._character = Character()
-    
-    def set_name(self, name):
+
+    def set_name(self, name: str) -> "CharacterBuilder":
         """Define el nombre del personaje."""
         self._character.name = name
         return self  # Devuelve self para encadenar metodos
-    
-    def set_class(self, character_class):
+
+    def set_class(self, character_class: str) -> "CharacterBuilder":
         """Define la clase del personaje (warrior, mage, archer, etc)."""
         self._character.character_class = character_class
         return self
-    
-    def set_strength(self, value):
+
+    def set_strength(self, value: int) -> "CharacterBuilder":
         """Define la fuerza (0-100)."""
         self._character.strength = min(100, max(0, value))
         return self
-    
-    def set_agility(self, value):
+
+    def set_agility(self, value: int) -> "CharacterBuilder":
         """Define la agilidad (0-100)."""
         self._character.agility = min(100, max(0, value))
         return self
-    
-    def set_intelligence(self, value):
+
+    def set_intelligence(self, value: int) -> "CharacterBuilder":
         """Define la inteligencia (0-100)."""
         self._character.intelligence = min(100, max(0, value))
         return self
-    
-    def set_health(self, value):
+
+    def set_health(self, value: int) -> "CharacterBuilder":
         """Define la salud inicial."""
         self._character.health = max(1, value)
         return self
-    
-    def set_weapon(self, weapon):
+
+    def set_weapon(self, weapon: str) -> "CharacterBuilder":
         """Define el arma del personaje."""
         self._character.weapon = weapon
         return self
-    
-    def set_armor(self, armor):
+
+    def set_armor(self, armor: str) -> "CharacterBuilder":
         """Define la armadura del personaje."""
         self._character.armor = armor
         return self
-    
-    def set_accessory(self, accessory):
+
+    def set_accessory(self, accessory: str) -> "CharacterBuilder":
         """Define el accesorio del personaje."""
         self._character.accessory = accessory
         return self
-    
-    def build(self):
+
+    def build(self) -> Character:
         """
         Finaliza la construccion y devuelve el personaje.
         Tambien reinicia el builder para poder crear otro.
@@ -128,11 +128,11 @@ class CharacterDirector:
     DIRECTOR (opcional): Conoce recetas predefinidas de personajes.
     Usa el builder para crear configuraciones comunes.
     """
-    
-    def __init__(self, builder: CharacterBuilder):
+
+    def __init__(self, builder: CharacterBuilder) -> None:
         self._builder = builder
-    
-    def create_warrior(self, name):
+
+    def create_warrior(self, name: str) -> Character:
         """Crea un guerrero: alta fuerza, armadura pesada."""
         return self._builder \
             .set_name(name) \
@@ -145,8 +145,8 @@ class CharacterDirector:
             .set_armor("Armadura Pesada") \
             .set_accessory("Escudo") \
             .build()
-    
-    def create_mage(self, name):
+
+    def create_mage(self, name: str) -> Character:
         """Crea un mago: alta inteligencia, tunicas."""
         return self._builder \
             .set_name(name) \
@@ -159,8 +159,8 @@ class CharacterDirector:
             .set_armor("Tunica Arcana") \
             .set_accessory("Amuleto de Mana") \
             .build()
-    
-    def create_archer(self, name):
+
+    def create_archer(self, name: str) -> Character:
         """Crea un arquero: alta agilidad, arco."""
         return self._builder \
             .set_name(name) \
