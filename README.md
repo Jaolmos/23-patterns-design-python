@@ -121,16 +121,31 @@ Cada archivo incluye:
 - Demostracion ejecutable
 - Resumen de ventajas
 
-## Conceptos OOP Utilizados
+## Fundamentos de Diseño Aplicados
 
-Los patrones hacen uso extensivo de conceptos de programacion orientada a objetos:
+Los patrones hacen uso extensivo de conceptos POO y principios SOLID:
 
-- **Abstraccion**: Clases abstractas (ABC) e interfaces
-- **Herencia**: Subclases que extienden comportamiento
-- **Polimorfismo**: Diferentes implementaciones de una misma interfaz
-- **Encapsulacion**: Ocultamiento de detalles internos
-- **Composicion**: Objetos que contienen otros objetos
-- **Delegacion**: Objetos que delegan trabajo a otros
+### Conceptos POO
+
+| Concepto | Descripcion | Patrones donde destaca |
+|----------|-------------|------------------------|
+| **Abstraccion** | Clases abstractas (ABC) e interfaces | Todos |
+| **Herencia** | Subclases que extienden comportamiento | Template Method, Factory Method |
+| **Polimorfismo** | Diferentes implementaciones de una misma interfaz | Strategy, State, Command |
+| **Encapsulacion** | Ocultamiento de detalles internos | Memento, Iterator, Facade |
+| **Composicion** | Objeto crea y es dueño de otros objetos | Composite, Facade, Mediator |
+| **Agregacion** | Objeto recibe referencia a otros objetos | Decorator, Observer, Strategy |
+| **Delegacion** | Objeto pasa responsabilidad a otro objeto | Facade, Proxy, Strategy, State |
+
+### Principios SOLID
+
+| Principio | Descripcion | Patrones donde destaca |
+|-----------|-------------|------------------------|
+| **SRP** | Una clase, una responsabilidad | Command, Strategy |
+| **OCP** | Abierto a extension, cerrado a modificacion | Decorator, Visitor, Strategy |
+| **LSP** | Subtipos sustituibles por sus tipos base | Factory Method, Template Method |
+| **ISP** | Interfaces especificas mejor que generales | Adapter, Facade |
+| **DIP** | Depender de abstracciones, no de implementaciones | Abstract Factory, Bridge, Strategy |
 
 ## Referencias
 
